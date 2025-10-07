@@ -70,7 +70,7 @@ const Footer = () => {
       </div>
 
       <div className="flex justify-center items-center mt-6 text-gray-400 text-sm">
-        © 2025 HERO.IO — All rights reserved
+        Copyright © 2025 - All right reserved
       </div>
     </div>
   );

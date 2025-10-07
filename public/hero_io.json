@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ibb.co/1.png",
+    "title": "TaskHero",
+    "companyName": "HERO.IO",
+    "description": "Boost your productivity with smart task tracking and reminders.",
+    "size": 42,
+    "reviews": 12500,
+    "ratingAvg": 4.6,
+    "downloads": 2500000,
+    "ratings": [
+      { "name": "1 star", "count": 320 },
+      { "name": "2 star", "count": 450 },
+      { "name": "3 star", "count": 1200 },
+      { "name": "4 star", "count": 3500 },
+      { "name": "5 star", "count": 9530 }
+    ]
+  },
+  {
+    "id": 2,
+    "image": "https://i.ibb.co/2.png",
+    "title": "FitLife",
+    "companyName": "ActiveWare",
+    "description": "Track workouts, diet, and sleep to stay fit and healthy.",
+    "size": 58,
+    "reviews": 8300,
+    "ratingAvg": 4.4,
+    "downloads": 1800000,
+    "ratings": [
+      { "name": "1 star", "count": 200 },
+      { "name": "2 star", "count": 300 },
+      { "name": "3 star", "count": 800 },
+      { "name": "4 star", "count": 2500 },
+      { "name": "5 star", "count": 5500 }
+    ]
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co/3.png",
+    "title": "NoteMaster",
+    "companyName": "TechSavvy",
+    "description": "Organize your thoughts with smart note-taking features.",
+    "size": 35,
+    "reviews": 10500,
+    "ratingAvg": 4.7,
+    "downloads": 3000000,
+    "ratings": [
+      { "name": "1 star", "count": 150 },
+      { "name": "2 star", "count": 250 },
+      { "name": "3 star", "count": 600 },
+      { "name": "4 star", "count": 2000 },
+      { "name": "5 star", "count": 7000 }
+    ]
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co/4.png",
+    "title": "SleepWell",
+    "companyName": "RestTech",
+    "description": "Improve your sleep quality with personalized tips.",
+    "size": 45,
+    "reviews": 9200,
+    "ratingAvg": 4.3,
+    "downloads": 2200000,
+    "ratings": [
+      { "name": "1 star", "count": 180 },
+      { "name": "2 star", "count": 270 },
+      { "name": "3 star", "count": 700 },
+      { "name": "4 star", "count": 2000 },
+      { "name": "5 star", "count": 6050 }
+    ]
+  },
+  {
+    "id": 5,
+    "image": "https://i.ibb.co/5.png",
+    "title": "BudgetBuddy",
+    "companyName": "FinancePro",
+    "description": "Manage your finances with ease and stay on budget.",
+    "size": 50,
+    "reviews": 11000,
+    "ratingAvg": 4.5,
+    "downloads": 2700000,
+    "ratings": [
+      { "name": "1 star", "count": 100 },
+      { "name": "2 star", "count": 200 },
+      { "name": "3 star", "count": 500 },
+      { "name": "4 star", "count": 2500 },
+      { "name": "5 star", "count": 7700 }
+    ]
+  },
+  {
+    "id": 6,
+    "image": "https://i.ibb.co/6.png",
+    "title": "PhotoSnap",
+    "companyName": "SnapTech",
+    "description": "Capture and edit photos with advanced tools.",
+    "size": 60,
+    "reviews": 15000,
+    "ratingAvg": 4.8,
+    "downloads": 3500000,
+    "ratings": [
+      { "name": "1 star", "count": 50 },
+      { "name": "2 star", "count": 100 },
+      { "name": "3 star", "count": 300 },
+      { "name": "4 star", "count": 1500 },
+      { "name": "5 star", "count": 13050 }
+    ]
+  },
+  {
+    "id": 7,
+    "image": "https://i.ibb.co/7.png",
+    "title": "TravelMate",
+    "companyName": "GlobeTrot",
+    "description": "Plan your trips and discover new destinations.",
+    "size": 55,
+    "reviews": 9800,
+    "ratingAvg": 4.4,
+    "downloads": 2400000,
+    "ratings": [
+      { "name": "1 star", "count": 120 },
+      { "name": "2 star", "count": 180 },
+      { "name": "3 star", "count": 500 },
+      { "name": "4 star", "count": 2200 },
+      { "name": "5 star", "count": 6000 }
+    ]
+  },
+  {
+    "id": 8,
+    "image": "https://i.ibb.co/8.png",
+    "title": "NewsFlash",
+    "companyName": "MediaHub",
+    "description": "Stay updated with the latest news and articles.",
+    "size": 40,
+    "reviews": 11500,
+    "ratingAvg": 4.6,
+    "downloads": 2800000,
+    "ratings": [
+      { "name": "1 star", "count": 80 },
+      { "name": "2 star", "count": 120 },
+      { "name": "3 star", "count": 400 },
+      { "name": "4 star", "count": 1800 },
+      { "name": "5 star", "count": 10100 }
+    ]
+  },
+  {
+    "id": 9,
+    "image": "https://i.ibb.co/9.png",
+    "title": "ShopSmart",
+    "companyName": "RetailTech",
+    "description": "Find the best deals and discounts while shopping.",
+    "size": 65,
+    "reviews": 12500,
+    "ratingAvg": 4.7,
+    "downloads": 3200000,
+    "ratings": [
+      { "name": "1 star", "count": 60 },
+      { "name": "2 star", "count": 90 },
+      { "name": "3 star", "count": 300 },
+      { "name": "4 star", "count": 1500 },
+      { "name": "5 star", "count": 11550 }
+    ]
+  },
+  {
+    "id": 10,
+    "image": "https://i.ibb.co/10.png",
+    "title": "CookMaster",
+    "companyName": "KitchenPro",
+    "description": "Discover new recipes and improve your cooking skills.",
+    "size": 50,
+    "reviews": 10500,
+    "ratingAvg": 4.5,
+    "downloads": 2600000,
+    "ratings": [
+      { "name": "1 star", "count": 100 },
+      { "name": "2 star", "count": 150 },
+      { "name": "3 star", "count": 400 },
+      { "name": "4 star", "count": 2000 },
+      { "name": "5 star", "count": 8000 }
+    ]
+  },
+  {
+    "id": 11,
+    "image": "https://i.ibb.co/11.png",
+    "title": "WeatherPro",
+    "companyName": "ClimateTech",
+    "description": "Get accurate weather forecasts and alerts.",
+    "size": 45,
+    "reviews": 9800,
+    "ratingAvg": 4.3,
+    "downloads": 2300000,
+    "ratings": [
+      { "name": "1 star", "count": 150 },
+      { "name": "2 star", "count": 200 },
+      { "name": "3 star", "count": 600 },
+      { "name": "4 star", "count": 1800 },
+      { "name": "5 star", "count": 6250 }
+    ]
+  },
+  {
+    "id": 12,
+    "image": "https://i.ibb.co/12.png",
+    "title": "StudyBuddy",
+    "companyName": "EduTech",
+    "description": "Enhance your learning with interactive study tools.",
+    "size": 60,
+    "reviews": 11000,
+    "ratingAvg": 4.6,
+    "downloads": 2900000,
+    "ratings": [
+      { "name": "1 star", "count": 80 },
+      { "name": "2 star", "count": 120 },
+      { "name": "3 star", "count": 400 },
+      { "name": "4 star", "count": 2200 },
+      { "name": "5 star", "count": 9200 }
+    ]
+  }
+]
