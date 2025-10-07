@@ -40,12 +40,11 @@ const Navbar = () => {
               </Link>
             </ul>
           </div>
-          <div className="flex justify-center items-center gap-2">
+
+          <Link className="flex justify-center items-center gap-2 text-xl font-bold bg-gradient-to-r from-[#632ee3]  to-[#9f62f2] bg-clip-text text-transparent">
             <img className="h-[40px] w-[40px] " src={logoImg} alt="" />
-            <Link className=" text-xl font-bold bg-gradient-to-r from-[#632ee3]  to-[#9f62f2] bg-clip-text text-transparent">
-              HERO.IO
-            </Link>
-          </div>
+            HERO.IO
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal space-x-3">
