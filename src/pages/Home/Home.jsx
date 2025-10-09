@@ -10,9 +10,9 @@ const Home = () => {
 
   const featuredApps = apps.slice(0, 8);
   return (
-    <div className="max-w-[1600px] mx-auto w-full px-4 md:px-8 lg:px-12 flex-1]">
+    <div className="max-w-[1600px] bg-[#fdfbfb] mx-auto w-full px-4 md:px-8 lg:px-12 flex-1]">
       <div className="text-center">
-        <h2 className="text-[40px] sm:text-[56px] md:text-[72px] leading-tight font-semibold mt-12 sm:mt-20">
+        <h2 className="text-[40px] sm:text-[56px] md:text-[72px] leading-tight font-semibold pt-12 sm:pt-20">
           We Build
           <br />
           <span className="bg-gradient-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent">

@@ -2,7 +2,7 @@ import React from "react";
 import errorImg from "../../assets/errorImg.png";
 const ErrorPage = () => {
   return (
-    <div className="flex justify-center items-center text-center">
+    <div className="flex bg-[#fdfbfb] justify-center items-center text-center">
       <div className="space-y-4">
         <img className="mt-20" src={errorImg} alt="" />
         <h2 className="text-[48px] font-semibold">Oops, page not found!</h2>

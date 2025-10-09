@@ -7,7 +7,7 @@ const useApps = () => {
   const [error, setError] = useState(null);
   useEffect(() => {
     setLoading(true);
-    axios("/hero_io.json")
+    axios("../hero_io.json")
       .then((data) => setApps(data.data))
       .catch((err) => setError(setError))
       .finally(() => setLoading(false));
