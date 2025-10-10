@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router";
 import logoImg from "../../assets/logo.png";
-import { Link } from "react-router";
 import { FaGithub } from "react-icons/fa";
 
 const Navbar = () => {
   const activeClass = "border-b-2 border-purple-600";
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState("");
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/") setActive("home");
+    else if (path === "/app") setActive("app");
+    else if (path === "/installation") setActive("installation");
+  }, [location]);
 
   return (
-    <div className="max-w-[1600px] mx-auto">
-      <div className="navbar bg-base-100 shadow-sm lg:px-15">
-        <div className="navbar-start">
+    <div>
+      <div className="max-w-[1600px] mx-auto">
+        <div className="navbar bg-base-100 shadow-sm lg:px-15">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -20,24 +29,24 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
+                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />
+                />{" "}
               </svg>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-4 space-y-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 space-y-3 p-4 shadow"
             >
               <Link
                 to="/"
                 className={`font-semibold ${
                   active === "home" ? activeClass : ""
                 }`}
-                onClick={() => setActive("home")}
               >
                 Home
               </Link>
@@ -46,7 +55,6 @@ const Navbar = () => {
                 className={`font-semibold ${
                   active === "app" ? activeClass : ""
                 }`}
-                onClick={() => setActive("app")}
               >
                 App
               </Link>
@@ -55,60 +63,59 @@ const Navbar = () => {
                 className={`font-semibold ${
                   active === "installation" ? activeClass : ""
                 }`}
-                onClick={() => setActive("installation")}
+              >
+                Installation
+              </Link>
+            </ul>
+          </div>
+          <div className="navbar-start">
+            <Link
+              to="/"
+              className="flex justify-center items-center gap-2 text-xl font-bold bg-gradient-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent"
+            >
+              <img className="h-[40px] w-[40px]" src={logoImg} alt="Logo" />
+              HERO.IO
+            </Link>
+          </div>
+
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal space-x-3">
+              <Link
+                to="/"
+                className={`font-semibold ${
+                  active === "home" ? activeClass : ""
+                }`}
+              >
+                Home
+              </Link>
+              <Link
+                to="/app"
+                className={`font-semibold ${
+                  active === "app" ? activeClass : ""
+                }`}
+              >
+                App
+              </Link>
+              <Link
+                to="/installation"
+                className={`font-semibold ${
+                  active === "installation" ? activeClass : ""
+                }`}
               >
                 Installation
               </Link>
             </ul>
           </div>
 
-          <Link
-            to="/"
-            className="flex justify-center items-center gap-2 text-xl font-bold bg-gradient-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent"
-          >
-            <img className="h-[40px] w-[40px]" src={logoImg} alt="Logo" />
-            HERO.IO
-          </Link>
-        </div>
-
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal space-x-3">
+          <div className="navbar-end">
             <Link
-              to="/"
-              className={`font-semibold ${
-                active === "home" ? activeClass : ""
-              }`}
-              onClick={() => setActive("home")}
+              to="https://github.com/shanto522"
+              target="_blank"
+              className="btn text-white bg-gradient-to-r from-[#632ee3] to-[#9f62f2]"
             >
-              Home
+              <FaGithub /> Contribute
             </Link>
-            <Link
-              to="/app"
-              className={`font-semibold ${active === "app" ? activeClass : ""}`}
-              onClick={() => setActive("app")}
-            >
-              App
-            </Link>
-            <Link
-              to="/installation"
-              className={`font-semibold ${
-                active === "installation" ? activeClass : ""
-              }`}
-              onClick={() => setActive("installation")}
-            >
-              Installation
-            </Link>
-          </ul>
-        </div>
-
-        <div className="navbar-end">
-          <Link
-            to="https://github.com/shanto522"
-            target="_blank"
-            className="btn text-white bg-gradient-to-r from-[#632ee3] to-[#9f62f2]"
-          >
-            <FaGithub /> Contribute
-          </Link>
+          </div>
         </div>
       </div>
     </div>
