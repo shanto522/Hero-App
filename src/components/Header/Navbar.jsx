@@ -4,8 +4,7 @@ import { Link } from "react-router";
 import { FaGithub } from "react-icons/fa";
 
 const Navbar = () => {
-  const activeClass = "border-b-3 border-purple-600";
-
+  const activeClass = "border-b-2 border-purple-600";
   const [active, setActive] = useState("home");
 
   return (
@@ -34,28 +33,28 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-4 space-y-2 shadow"
             >
               <Link
+                to="/"
                 className={`font-semibold ${
                   active === "home" ? activeClass : ""
                 }`}
-                to="/"
                 onClick={() => setActive("home")}
               >
                 Home
               </Link>
               <Link
+                to="/app"
                 className={`font-semibold ${
                   active === "app" ? activeClass : ""
                 }`}
-                to="/app"
                 onClick={() => setActive("app")}
               >
                 App
               </Link>
               <Link
+                to="/installation"
                 className={`font-semibold ${
                   active === "installation" ? activeClass : ""
                 }`}
-                to="/installation"
                 onClick={() => setActive("installation")}
               >
                 Installation
@@ -63,8 +62,11 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <Link className="flex justify-center items-center gap-2 text-xl font-bold bg-gradient-to-r from-[#632ee3]  to-[#9f62f2] bg-clip-text text-transparent">
-            <img className="h-[40px] w-[40px]" src={logoImg} alt="" />
+          <Link
+            to="/"
+            className="flex justify-center items-center gap-2 text-xl font-bold bg-gradient-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent"
+          >
+            <img className="h-[40px] w-[40px]" src={logoImg} alt="Logo" />
             HERO.IO
           </Link>
         </div>
@@ -81,17 +83,17 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              className={`font-semibold ${active === "app" ? activeClass : ""}`}
               to="/app"
+              className={`font-semibold ${active === "app" ? activeClass : ""}`}
               onClick={() => setActive("app")}
             >
               App
             </Link>
             <Link
+              to="/installation"
               className={`font-semibold ${
                 active === "installation" ? activeClass : ""
               }`}
-              to="/installation"
               onClick={() => setActive("installation")}
             >
               Installation
@@ -102,6 +104,7 @@ const Navbar = () => {
         <div className="navbar-end">
           <Link
             to="https://github.com/shanto522"
+            target="_blank"
             className="btn text-white bg-gradient-to-r from-[#632ee3] to-[#9f62f2]"
           >
             <FaGithub /> Contribute

@@ -1,19 +1,12 @@
-import React, { useState } from "react";
-import { useParams } from "react-router";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router";
 import useApps from "../../hooks/useApps";
-
 import { FaCommentDots, FaDownload, FaStar } from "react-icons/fa";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ReferenceLine,
-  ResponsiveContainer,
-} from "recharts";
+import appErrImg from "../../assets/App_Error.png";
 import toast, { Toaster } from "react-hot-toast";
+import Loading from "../../components/Loading/Loading";
+
+const INSTALLED_APPS_KEY = "installedApps";
 
 const AppDetails = () => {
   const { id } = useParams();
@@ -22,21 +15,40 @@ const AppDetails = () => {
 
   const [isInstalled, setIsInstalled] = useState(false);
 
-  if (loading)
+  useEffect(() => {
+    if (app) {
+      const installedApps = JSON.parse(
+        localStorage.getItem(INSTALLED_APPS_KEY) || "[]"
+      );
+      setIsInstalled(
+        installedApps.some((installedApp) => String(installedApp.id) === id)
+      );
+    }
+  }, [app, id]);
+
+  if (loading) return <Loading />;
+  if (error)
+    return <p className="text-center mt-10 text-xl">Error loading app data.</p>;
+  if (!app)
     return (
-      <p className="flex justify-center item center">
-        <span className="loading loading-spinner text-primary"></span>
-        <span className="loading loading-spinner text-secondary"></span>
-        <span className="loading loading-spinner text-accent"></span>
-        <span className="loading loading-spinner text-neutral"></span>
-        <span className="loading loading-spinner text-info"></span>
-        <span className="loading loading-spinner text-success"></span>
-        <span className="loading loading-spinner text-warning"></span>
-        <span className="loading loading-spinner text-error"></span>
-      </p>
+      <div className="flex justify-center items-center min-h-screen p-4">
+        <div className="max-w-[1600px] w-full text-center">
+          <img
+            src={appErrImg}
+            alt="App Not Found"
+            className="mx-auto w-full max-w-sm sm:max-w-md md:max-w-lg lg:h-[400px] lg:w-[400px]"
+          />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold my-6">
+            App Is Not Found
+          </h2>
+          <Link to="/app">
+            <button className="btn btn-primary text-lg sm:text-xl md:text-2xl font-semibold h-16 sm:h-20 md:h-24 w-48 sm:w-56 md:w-72 rounded-xl">
+              Go Home
+            </button>
+          </Link>
+        </div>
+      </div>
     );
-  if (error) return <p>Error loading app data.</p>;
-  if (!app) return <p>App not found.</p>;
 
   const {
     image,
@@ -51,37 +63,31 @@ const AppDetails = () => {
   } = app;
 
   const handleInstallClick = () => {
-    toast.success(`Successfully installed ${title}!`, {
-      duration: 3000,
-      position: "top-center",
-    });
-    setIsInstalled(true);
+    const installedApps = JSON.parse(
+      localStorage.getItem(INSTALLED_APPS_KEY) || "[]"
+    );
+
+    if (!installedApps.some((a) => String(a.id) === id)) {
+      const updatedApps = [...installedApps, app];
+      localStorage.setItem(INSTALLED_APPS_KEY, JSON.stringify(updatedApps));
+      toast.success(`Successfully installed ${title}!`, {
+        duration: 3000,
+        position: "top-center",
+      });
+      setIsInstalled(true);
+    }
   };
-
-  const processedRatings = ratings.map((r) => ({
-    ...r,
-    count: Number(r.count),
-  }));
-  const chartData = processedRatings.reverse();
-
-  const maxCount = chartData.reduce(
-    (max, item) => Math.max(max, item.count),
-    0
-  );
-  const referenceLinePosition = 0;
-  const xAxisTicks = [0, 3000, 6000, 9000, 12000];
+  const maxRatingCount = Math.max(...ratings.map((rating) => rating.count));
 
   return (
     <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-10 lg:px-20">
       <Toaster />
-
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 pt-10 pb-4 border-b border-gray-300">
         <img
           className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] md:w-[300px] md:h-[300px] lg:w-[320px] lg:h-[320px] object-cover rounded-xl shadow-md"
           src={image}
           alt={title}
         />
-
         <div className="text-center lg:text-left">
           <h2 className="text-2xl sm:text-3xl md:text-[32px] font-semibold">
             {title}
@@ -89,34 +95,29 @@ const AppDetails = () => {
           <p className="text-[16px] sm:text-[18px] md:text-[20px] font-semibold border-b border-gray-300 pb-2 text-gray-600">
             Developed by {companyName}
           </p>
-
           <div className="flex flex-wrap justify-center lg:justify-start items-start gap-6 sm:gap-10 mt-4">
             <div className="flex flex-col items-center">
               <FaDownload className="text-[28px] sm:text-[30px] mb-1 text-green-600" />
               <p className="text-sm text-gray-600">Downloads</p>
               <h2 className="text-2xl sm:text-[36px] font-bold">{downloads}</h2>
             </div>
-
             <div className="flex flex-col items-center">
               <FaStar className="text-[28px] sm:text-[30px] mb-1 text-amber-500" />
               <p className="text-sm text-gray-600">Average Rating</p>
               <h2 className="text-2xl sm:text-[36px] font-bold">{ratingAvg}</h2>
             </div>
-
             <div className="flex flex-col items-center">
               <FaCommentDots className="text-[28px] sm:text-[30px] mb-1 text-blue-500" />
               <p className="text-sm text-gray-600">Total Reviews</p>
               <h2 className="text-2xl sm:text-[36px] font-bold">{reviews}</h2>
             </div>
           </div>
-
           <button
-            className={`w-[200px] sm:w-[220px] md:w-[240px] h-[48px] sm:h-[52px] text-white font-semibold rounded-lg cursor-pointer mt-6 transition duration-200 
-                ${
-                  isInstalled
-                    ? "bg-gray-500 cursor-not-allowed"
-                    : "bg-[#00d390] hover:bg-[#00b07a]"
-                }`}
+            className={`w-[200px] sm:w-[220px] md:w-[240px] h-[48px] sm:h-[52px] text-white font-semibold rounded-lg cursor-pointer mt-6 transition duration-200 ${
+              isInstalled
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-[#00d390] hover:bg-[#00b07a]"
+            }`}
             onClick={handleInstallClick}
             disabled={isInstalled}
           >
@@ -129,60 +130,28 @@ const AppDetails = () => {
         <h2 className="text-xl sm:text-2xl md:text-[24px] font-semibold my-3">
           Ratings
         </h2>
-        <div className="bg-[#f0f3f8] rounded-xl p-4 h-[260px] sm:h-[300px] w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={chartData}
-              layout="horizontal"
-              margin={{ top: 10, right: 30, left: 20, bottom: 5 }}
-              barCategoryGap="10%"
-            >
-              <CartesianGrid
-                horizontal={true}
-                vertical={false}
-                stroke="#e0e0e0"
-                strokeDasharray="3 3"
-              />
-              <XAxis
-                type="number"
-                tick={{ fill: "#6b7280", fontSize: 12 }}
-                domain={[
-                  0,
-                  maxCount > xAxisTicks[xAxisTicks.length - 1]
-                    ? maxCount
-                    : xAxisTicks[xAxisTicks.length - 1],
-                ]}
-                ticks={xAxisTicks}
-                tickFormatter={(value) => value.toLocaleString()}
-              />
-              <YAxis
-                dataKey="name"
-                type="category"
-                tickLine={false}
-                axisLine={false}
-                tick={{ fill: "#4b5563", fontSize: 13, textAnchor: "end" }}
-                width={70}
-                interval={0}
-                tickMargin={10}
-              />
-              <Tooltip
-                cursor={{ fill: "rgba(0,0,0,0.05)" }}
-                formatter={(value) => [value.toLocaleString(), "Votes"]}
-              />
-              <ReferenceLine
-                x={referenceLinePosition}
-                stroke="#dc2626"
-                strokeWidth={2}
-                ifOverflow="extendDomain"
-              />
-              <Bar
-                dataKey="count"
-                fill="#ff8c00"
-                barSize={20}
-                isAnimationActive={true}
-              />
-            </BarChart>
-          </ResponsiveContainer>
+        <div className="bg-[#f0f3f8] rounded-xl p-4 h-[260px] sm:h-[300px] w-full flex flex-col justify-around">
+          {ratings
+            .slice()
+            .reverse()
+            .map((rating) => (
+              <div key={rating.name} className="flex items-center gap-2">
+                <span className="w-16 text-right text-sm font-medium text-gray-700">
+                  {rating.name}
+                </span>
+                <div className="flex-grow bg-gray-200 rounded-full h-4">
+                  <div
+                    className="bg-orange-500 h-full rounded-full"
+                    style={{
+                      width: `${(rating.count / maxRatingCount) * 100}%`,
+                    }}
+                  ></div>
+                </div>
+                <span className="text-sm text-gray-600 min-w-[50px]">
+                  {rating.count.toLocaleString()}
+                </span>
+              </div>
+            ))}
         </div>
       </div>
 

@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
-    errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -29,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/appDetails/:id",
         Component: AppDetails,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },

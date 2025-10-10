@@ -8,7 +8,7 @@
     "size": 180,
     "reviews": "125k",
     "ratingAvg": 4.1,
-    "downloads": "2B+",
+    "downloads": "30M",
     "ratings": [
       { "name": "1 star", "count": 300000 },
       { "name": "2 star", "count": 200000 },
@@ -26,7 +26,7 @@
     "size": 120,
     "reviews": "82k",
     "ratingAvg": 4.4,
-    "downloads": "4B+",
+    "downloads": "18M",
     "ratings": [
       { "name": "1 star", "count": 150000 },
       { "name": "2 star", "count": 120000 },
@@ -44,7 +44,7 @@
     "size": 150,
     "reviews": "94k",
     "ratingAvg": 4.3,
-    "downloads": "2.5B+",
+    "downloads": "9.4M",
     "ratings": [
       { "name": "1 star", "count": 200000 },
       { "name": "2 star", "count": 150000 },
@@ -62,7 +62,7 @@
     "size": 95,
     "reviews": "167k",
     "ratingAvg": 4.5,
-    "downloads": "5B+",
+    "downloads": "10M",
     "ratings": [
       { "name": "1 star", "count": 250000 },
       { "name": "2 star", "count": 180000 },
@@ -80,7 +80,7 @@
     "size": 55,
     "reviews": "55k",
     "ratingAvg": 4.5,
-    "downloads": "5.6B+",
+    "downloads": "6.5M",
     "ratings": [
       { "name": "1 star", "count": 100000 },
       { "name": "2 star", "count": 120000 },
@@ -98,7 +98,7 @@
     "size": 110,
     "reviews": "43k",
     "ratingAvg": 4.6,
-    "downloads": "500M+",
+    "downloads": "7.32M",
     "ratings": [
       { "name": "1 star", "count": 120000 },
       { "name": "2 star", "count": 100000 },
@@ -116,7 +116,7 @@
     "size": 90,
     "reviews": "72k",
     "ratingAvg": 4.5,
-    "downloads": "1.2B+",
+    "downloads": "9.5M",
     "ratings": [
       { "name": "1 star", "count": 180000 },
       { "name": "2 star", "count": 160000 },
@@ -134,7 +134,7 @@
     "size": 130,
     "reviews": "61k",
     "ratingAvg": 4.1,
-    "downloads": "1.8B+",
+    "downloads": "7.8M",
     "ratings": [
       { "name": "1 star", "count": 140000 },
       { "name": "2 star", "count": 130000 },
@@ -152,7 +152,7 @@
     "size": 140,
     "reviews": "79k",
     "ratingAvg": 4.6,
-    "downloads": "1.6B+",
+    "downloads": "4.6M",
     "ratings": [
       { "name": "1 star", "count": 90000 },
       { "name": "2 star", "count": 100000 },
@@ -170,7 +170,7 @@
     "size": 70,
     "reviews": "48k",
     "ratingAvg": 4.5,
-    "downloads": "2.2B+",
+    "downloads": "1.4M",
     "ratings": [
       { "name": "1 star", "count": 110000 },
       { "name": "2 star", "count": 90000 },
@@ -188,7 +188,7 @@
     "size": 60,
     "reviews": "52k",
     "ratingAvg": 4.6,
-    "downloads": "5.2B+",
+    "downloads": "1.6M",
     "ratings": [
       { "name": "1 star", "count": 120000 },
       { "name": "2 star", "count": 140000 },
@@ -206,7 +206,7 @@
     "size": 170,
     "reviews": "98k",
     "ratingAvg": 4.4,
-    "downloads": "2.7B+",
+    "downloads": "2.8M",
     "ratings": [
       { "name": "1 star", "count": 220000 },
       { "name": "2 star", "count": 180000 },
@@ -224,7 +224,7 @@
     "size": 85,
     "reviews": "46k",
     "ratingAvg": 4.3,
-    "downloads": "3.3B+",
+    "downloads": "2.5M",
     "ratings": [
       { "name": "1 star", "count": 100000 },
       { "name": "2 star", "count": 90000 },
@@ -242,7 +242,7 @@
     "size": 105,
     "reviews": "54k",
     "ratingAvg": 4.2,
-    "downloads": "550M+",
+    "downloads": "2.2M",
     "ratings": [
       { "name": "1 star", "count": 130000 },
       { "name": "2 star", "count": 120000 },
@@ -260,7 +260,7 @@
     "size": 160,
     "reviews": "820k",
     "ratingAvg": 4.0,
-    "downloads": "3.6B+",
+    "downloads": "3M",
     "ratings": [
       { "name": "1 star", "count": 150000 },
       { "name": "2 star", "count": 130000 },
@@ -278,7 +278,7 @@
     "size": 250,
     "reviews": "100k",
     "ratingAvg": 4.3,
-    "downloads": "600M+",
+    "downloads": "2M",
     "ratings": [
       { "name": "1 star", "count": 100000 },
       { "name": "2 star", "count": 90000 },

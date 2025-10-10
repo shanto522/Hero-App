@@ -1,83 +1,74 @@
 import React, { useState, useEffect } from "react";
 import useApps from "../../hooks/useApps";
 import AppCard from "../../components/AppsCard/AppCard";
-import { Link } from "react-router";
-import { CiSearch } from "react-icons/ci";
+import { FaSpinner } from "react-icons/fa";
 
 const App = () => {
-  const { apps } = useApps();
+  const { apps, loading, error } = useApps();
   const [search, setSearch] = useState("");
-  const [searchedApps, setSearchedApps] = useState(apps);
-  const [loading, setLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
+    if (search.trim() === "") {
+      setIsSearching(false);
+      return;
+    }
 
-    const timeout = setTimeout(() => {
-      const term = search.trim().toLowerCase();
-      const filtered = term
-        ? apps.filter((app) => app.title.toLowerCase().includes(term))
-        : apps;
-      setSearchedApps(filtered);
-      setLoading(false);
-    }, 500);
+    setIsSearching(true);
+    const timer = setTimeout(() => {
+      setIsSearching(false);
+    }, 500); // 500ms debounce
 
-    return () => clearTimeout(timeout);
-  }, [search, apps]);
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <FaSpinner className="animate-spin text-5xl text-gray-400" />
+      </div>
+    );
+
+  if (error)
+    return <p className="text-center mt-10 text-xl">Error loading apps.</p>;
+
+  const filteredApps = apps.filter((app) =>
+    app.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <div className="max-w-[1600px] bg-[#fdfbfb] mx-auto px-5 sm:px-8 md:px-12">
-      <div className="text-center">
-        <h2 className="text-[40px] sm:text-[56px] md:text-[56px] leading-tight font-semibold pt-12 sm:pt-20">
-          Our All Applications
-        </h2>
-        <p className="text-[#627382] mt-4 text-base sm:text-lg md:text-xl leading-relaxed px-2 sm:px-16 md:px-40">
-          Explore All Apps on the Market developed by us. We code for Millions
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-10 lg:px-20 py-8">
+      <h1 className="text-3xl font-bold mb-4">Apps</h1>
+
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <p className="text-gray-600 font-bold">
+          <span className="font-bold">({filteredApps.length})</span> Apps Found
         </p>
+
+        <input
+          type="text"
+          placeholder="Search Apps"
+          className="input input-bordered w-full sm:w-64"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
 
-      <div>
-        <div className="flex justify-between py-5 items-center">
-          <h1 className="text-3xl font-semibold">
-            <span>({searchedApps.length})</span> Apps Found
-          </h1>
-          <label className="input font-semibold flex items-center gap-2 border rounded-xl px-3 py-2">
-            <CiSearch />
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              type="search"
-              placeholder="Search Apps"
-              className="outline-none bg-transparent"
-            />
-          </label>
+      {isSearching ? (
+        <div className="flex justify-center items-center h-[200px]">
+          <FaSpinner className="animate-spin text-4xl text-gray-400" />
         </div>
-
-        {loading ? (
-          <div className="flex justify-center items-center py-20">
-            <span className="loading loading-spinner text-primary w-12 h-12"></span>
-          </div>
-        ) : searchedApps.length === 0 ? (
-          <div className="text-center py-20">
-            <h2 className="text-4xl font-bold text-gray-700">
-              No Apps Found 😔
-            </h2>
-            <div className="flex justify-center items-center">
-              <Link to="/app">
-                <button className="h-[48px] w-[145px] bg-gradient-to-r from-[#632ee3] to-[#9f62f2] mt-[40px] mb-[80px] text-white font-semibold cursor-pointer rounded-xl">
-                  Show All Apps
-                </button>
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[80px]">
-            {searchedApps.map((app) => (
-              <AppCard key={app.id} app={app} />
-            ))}
-          </div>
-        )}
-      </div>
+      ) : filteredApps.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {filteredApps.map((app) => (
+            <AppCard key={app.id} app={app} />
+          ))}
+        </div>
+      ) : (
+        <p className="text-center mt-10 text-gray-500 text-5xl py-10">
+          No apps found.
+        </p>
+      )}
     </div>
   );
 };
