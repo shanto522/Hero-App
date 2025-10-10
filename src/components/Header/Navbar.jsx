@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import logoImg from "../../assets/logo.png";
-import { FaGithub } from "react-icons/fa";
+import { FaAppStore, FaGithub, FaHome } from "react-icons/fa";
+import { GrInstall } from "react-icons/gr";
 
 const Navbar = () => {
   const activeClass = "border-b-2 border-purple-600";
@@ -79,14 +80,17 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal space-x-3">
+            <ul className="menu menu-horizontal space-x-6">
               <Link
                 to="/"
                 className={`font-semibold ${
                   active === "home" ? activeClass : ""
                 }`}
               >
-                Home
+                <div className="flex justify-center items-center gap-1">
+                  <FaHome />
+                  Home
+                </div>
               </Link>
               <Link
                 to="/app"
@@ -94,7 +98,10 @@ const Navbar = () => {
                   active === "app" ? activeClass : ""
                 }`}
               >
-                App
+                <div className="flex justify-center items-center gap-1">
+                  <FaAppStore />
+                  Apps
+                </div>
               </Link>
               <Link
                 to="/installation"
@@ -102,7 +109,10 @@ const Navbar = () => {
                   active === "installation" ? activeClass : ""
                 }`}
               >
-                Installation
+                <div className="flex justify-center items-center gap-1">
+                  <GrInstall />
+                  Installation
+                </div>
               </Link>
             </ul>
           </div>

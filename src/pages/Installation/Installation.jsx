@@ -70,15 +70,15 @@ const Installation = () => {
     <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
       <Toaster />
       <div className="text-center">
-        <h2 className="text-[32px] sm:text-[44px] md:text-[56px] font-semibold mt-10 sm:mt-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-8 sm:mt-12">
           Your Installed Apps
         </h2>
-        <p className="text-[#627382] mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-10 md:px-32">
+        <p className="text-gray-600 mt-2 sm:mt-3 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-10 md:px-32">
           Explore all the apps you’ve installed from our platform.
         </p>
       </div>
 
-      <div className="mt-8 sm:mt-12 bg-gray-50 p-4 sm:p-6 md:p-8 rounded-xl shadow-md sm:shadow-lg">
+      <div className="mt-6 sm:mt-10 bg-gray-50 p-4 sm:p-6 md:p-8 rounded-xl shadow-md sm:shadow-lg">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
             {installedApps.length} App{installedApps.length !== 1 ? "s" : ""}{" "}
@@ -92,9 +92,9 @@ const Installation = () => {
               onChange={(e) => setSortBy(e.target.value)}
               className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm sm:text-base cursor-pointer"
             >
-              <option value="sizeDesc">Sort By Size</option>
-              <option value="downloadsHigh">High → Low</option>
-              <option value="downloadsLow">Low → High</option>
+              <option value="sizeDesc">Sort By Download</option>
+              <option value="downloadsHigh">Downloads (High → Low)</option>
+              <option value="downloadsLow">Downloads (Low → High)</option>
             </select>
           </div>
         </div>
@@ -116,15 +116,15 @@ const Installation = () => {
                   <img
                     src={app.image}
                     alt={`${app.title} icon`}
-                    className="w-20 h-20 object-cover rounded-lg border border-gray-200"
+                    className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg border border-gray-200"
                   />
 
                   <div className="flex-1 text-center sm:text-left">
-                    <p className="text-lg font-semibold text-gray-900">
+                    <p className="text-lg sm:text-xl font-semibold text-gray-900">
                       {app.title}
                     </p>
 
-                    <div className="flex flex-wrap justify-center sm:justify-start items-center gap-2 text-sm text-gray-600 mt-2">
+                    <div className="flex flex-wrap justify-center sm:justify-start items-center gap-2 text-sm sm:text-base text-gray-600 mt-2">
                       <span className="flex items-center">
                         <FaDownload className="text-green-600 mr-1" />
                         {app.downloads}
